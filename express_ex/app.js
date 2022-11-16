@@ -20,7 +20,10 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', function (req, res) {
 	console.log("Sent as a get request");
 
-	res.render('home', { title: "Routing in Action!"})
+	res.render('home', { 
+        title: "Routing in Action!",
+        class: "CPST 342 Intro. to Web"
+    })
 })
 
 app.get('/users/:id', function (req, res) {
@@ -35,6 +38,12 @@ app.get('/contact', function (req, res) {
 	res.render( 'contact', {title : "Contact Page"})
  })
 
+ app.get('/getjson', function (req, res) {
+
+	res.json({"name": "Somebody"});
+ })
+
+
  app.post('/submit', function (req, res) {
 	//Getting body parameters
 	var data = req.body;
@@ -44,7 +53,12 @@ app.get('/contact', function (req, res) {
 
 	console.log("Sent as a post request");
 	console.log(firstName + " " + lastName + " " + id );
-	res.render( 'contact', {title : "Contact Page"})
+	res.render( 'userinfo', {
+        title : "User Info. Page",
+        first : firstName,
+        last: lastName,
+        id : id
+    })
  })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
