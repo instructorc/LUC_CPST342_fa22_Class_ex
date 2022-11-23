@@ -1,0 +1,29 @@
+{
+    
+    "name": "Silas",
+    "age": 81,
+    "school": "Loyola University Chicago",
+    "program": "Graduate",
+    "start_term": "Fall 2021",
+    "graduation_term": "Spring 2023",
+    "courses": [
+        {
+            "course_name": "COMP251",
+            "start_time": "5pm",
+            "enrolled": 5
+        },
+        {
+            "course_name": "COMP170",
+            "start_time": "6pm",
+            "enrolled": 12
+        },
+        {
+            "course_name": "CPST343",
+            "start_time": "7pm",
+            "enrolled": 14           
+        }
+    ]
+}
+
+//An example of how to retrieve the course_name from the third object in courses is listed below
+console.log(student.courses[2].course_name);
