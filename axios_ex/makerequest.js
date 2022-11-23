@@ -1,15 +1,10 @@
-const axios = require('axios').default;
+const axios = require('axios')
+//import { axios } from "axios";
 
-// Make a request for a user with a given ID
-axios.get('https://www.googleapis.com/calendar/v3/calendars/2')
-  .then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  .finally(function () {
-    // always executed
+
+
+  axios.get('https://603a806df1d6aa0017a10c48.mockapi.io/users')
+  .then((response) => {
+    console.log(response.data);
+    console.log(data.)
   });
