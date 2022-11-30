@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Family Grocery List</title>
+         <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            #container{
+                width: 50%;
+                margin: auto;
+            }
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                }
+
+                td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+                }
+
+                tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Family Grocery List</h1>
+
+            
+            <!--Form to accept grocery data-->
+            <h2>Enter Grocery Item:</h2>
+            <form action="/create_item" method="POST">
+                <input type="text"  name="item_name" class="form-control"  placeholder="Enter grocery item (ex. Cereal)" size="40"><br>
+                <input type="number"  name="item_count" class="form-control" placeholder="Enter quantity (ex. 2)" size="60"><br>
+                <input type="submit" class="btn btn-primary" value="submit">
+            </form>
+
+            <!-- Display Grocery Items -->
+            <h2>Grocery List:</h2>
+            <table style="margin: 20px;">
+                    <tr>
+                        <th>Grocery Item</th>
+                        <th>Quantity</th>
+                        <th>MODIFY</th>
+                    </tr>
+                {{#each rows}}
+                    <tr>
+                        <td>{{this.item_name}}</td>
+                        <td>{{this.item_count}}</td>
+                        <td>
+                            <form action="/update_item" method="POST" style="float: left; margin-right: 12px;">
+                                <button name="updaterecord" id="deletenow" type="update" class="btn btn-success" value="{{this.itemID}}">UPDATE</button>
+                            </form>
+                            <form action="/delete_item" method="POST">
+                                <button name="deleterecord" id="deletenow" type="submit" class="btn btn-danger" value="{{this.itemID}}">DELETE</button>
+                            </form>
+                        </td>
+                        
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+    </body>
+
+</html>

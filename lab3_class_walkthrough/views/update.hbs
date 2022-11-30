@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Family Grocery List</title>
+         <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            #container{
+                width: 50%;
+                margin: auto;
+            }
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+                }
+
+                td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+                }
+
+                tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Family Grocery List</h1>
+
+            
+            <!--Form to accept grocery data-->
+            <h2>Update Grocery Item:</h2>
+            <form action="/confirm_update" method="POST">
+                <input type="text"  name="item_name" class="form-control"  placeholder="Enter grocery item (ex. Cereal)" value="{{row.item_name}}" size="40"><br>
+                <input type="number"  name="item_count" class="form-control" placeholder="Enter quantity (ex. 2)" value="{{row.item_count}}" size="60"><br>
+                <input type="submit" class="btn btn-primary" value="submit">
+            </form>
+
+          </div>
+    </body>
+
+</html>
